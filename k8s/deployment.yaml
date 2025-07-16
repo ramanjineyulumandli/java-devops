@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ram-java-deployment
+  labels:
+    app: ram-java-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ram-java-app
+  template:
+    metadata:
+      labels:
+        app: ram-java-app
+    spec:
+      containers:
+        - name: ram-java-container
+          image: trialjmgmk5.jfrog.io/ram-docker-local/ram-java-app:1.0.0
+          ports:
+            - containerPort: 8080
