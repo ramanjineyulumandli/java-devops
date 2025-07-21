@@ -27,6 +27,7 @@ jobs:
         run: echo "${{ secrets.JFROG_API_KEY }}" | docker login trialjmgmk5.jfrog.io -u ${{ secrets.JFROG_USERNAME }} --password-stdin
 
       - name: Build Java project with Gradle
+        working-directory: app
         run: gradle build
 
       - name: Build Docker image
